@@ -40,9 +40,9 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            { loader: 'css-loader', options: { sourceMap: true }},
-            { loader: 'postcss-loader', options: { sourceMap: true }},
-            { loader: 'sass-loader', options: { sourceMap: true }},
+            { loader: 'css-loader', options: { sourceMap: true } },
+            { loader: 'postcss-loader', options: { sourceMap: true } },
+            { loader: 'sass-loader', options: { sourceMap: true } },
           ],
         }),
       },
@@ -57,7 +57,7 @@ module.exports = {
     new ExtractTextPlugin('styles.css'),
     new webpack.SourceMapDevToolPlugin({
       filename: '[name].js.map',
-      exclude: ['vendor.js']
+      exclude: ['vendor.js'],
     }),
     new HtmlWebpackPlugin({
       filename: `${PATHS.jsout}/index.html`,
@@ -74,5 +74,8 @@ module.exports = {
     hot: true,
     open: true,
     publicPath: 'http://localhost:9000/',
-  }
+    // proxy: {
+    //   '**': 'http://localhost:3000/',
+    // },
+  },
 };

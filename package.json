@@ -1,5 +1,5 @@
 {
-  "name": "repCalculator",
+  "name": "charityChain",
   "version": "1.0.0",
   "description": "nodejs backend with express w/ react-redux front end",
   "main": "index.js",
