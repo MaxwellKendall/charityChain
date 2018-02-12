@@ -38,13 +38,15 @@ export default class App extends Component {
     return (
       <div className="container">
         <GlobalHeader />
-        <Grid columns={1} padded className="grid__main">
+        {/* <Grid columns={1} padded className="grid__main"> */}
           <Grid.Column className="signUp__container">
-            <Input placeholder='Email' value={this.state.email} onChange={this.onChange}/>
+            <Input className="signUp__input" placeholder='Email' value={this.state.email} onChange={this.onChange}/>
             <SignUp onClick={this.addToEmail} />
+          </Grid.Column>
+          <Grid.Column className="chart__container">
             <Chart />
           </Grid.Column>
-        </Grid>
+        {/* </Grid> */}
       </div>
     );
   }

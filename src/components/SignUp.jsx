@@ -8,7 +8,7 @@ export default class SignUp extends Component {
   }
   render() {
     return (
-        <Modal trigger={<Button onClick={this.props.onClick} className="signUp-button">Sign Up</Button>}>
+        <Modal trigger={<Button onClick={this.props.onClick} className="signUp__button">Sign Up</Button>}>
           <Modal.Header>Profile Picture</Modal.Header>
           <Modal.Content image>
             <Image wrapped size='medium' src='/assets/images/wireframe/image.png' />

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { chartData, chartOptions } from '../chartConfig';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 export default class Chart extends Component {
   static propTypes = {
@@ -25,12 +25,12 @@ export default class Chart extends Component {
 
   render() {
     return (
-      <div className='myChart'>
-        <LineChart width={400} height={400} data={this.state.data}>
+      <ResponsiveContainer width="75%" height={500}>
+        <LineChart data={this.state.data}>
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
           <Line type="monotone" dataKey="y" stroke="#fdc02f" />
         </LineChart>
-      </div>
+        </ResponsiveContainer>
     );
   }
 }
