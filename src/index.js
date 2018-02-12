@@ -5,6 +5,7 @@ import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 
+import 'semantic-ui-css/semantic.min.css';
 import configureStore from './store/configureStore';
 import configureHistory from './history/configureHistory';
 
