@@ -3,21 +3,13 @@ import { Route } from 'react-router-dom';
 import axios from 'axios';
 import GlobalHeader from './common/GlobalHeader';
 import SignUp from './SignUp';
+import Chart from './Chart';
 import { Button, Header, Icon, Image, Input, Grid, } from 'semantic-ui-react';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 export default class App extends Component {
   state = {
     email: '',
-    data: [],
   }
-
-  componentDidMount() {
-    fetch('http://wforcharity.pythonanywhere.com/getChartData')
-    .then(res => res.json())
-    .then(res => { this.setState(prevState => ({ ...prevState, data: res.data }))
-    });
-   }
 
   addToEmail = () => {
     const base = 'http://wforcharity.pythonanywhere.com';
@@ -28,12 +20,21 @@ export default class App extends Component {
 
   onChange = (e) => {
     e.persist();
-    console.log('event.target.value', e.target.value);
     this.setState(prevState => ({ ...prevState, email: e.target.value }))
   }
 
   render() {
-    const { data } = this.state;
+    const data = [
+      {t: "2018-02-10 01:36:35", y: 1},
+      {t: "2018-02-10 02:31:00", y: 2},
+      {t: "2018-02-10 03:01:15", y: 3},
+      {t: "2018-02-10 03:01:27", y: 4},
+      {t: "2018-02-10 03:05:55", y: 5},
+      {t: "2018-02-10 03:06:38", y: 6},
+      {t: "2018-02-10 03:10:14", y: 7},
+      {t: "2018-02-12 15:54:35", y: 8},
+    ];
+
     return (
       <div className="container">
         <GlobalHeader />
@@ -41,12 +42,7 @@ export default class App extends Component {
           <Grid.Column className="signUp__container">
             <Input placeholder='Email' value={this.state.email} onChange={this.onChange}/>
             <SignUp onClick={this.addToEmail} />
-            <div className="chart">
-            <LineChart width={400} height={400} data={data}>
-              <Line type="monotone" dataKey="y" stroke="#fdc02f" />
-              <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-            </LineChart>
-            </div>
+            <Chart />
           </Grid.Column>
         </Grid>
       </div>
